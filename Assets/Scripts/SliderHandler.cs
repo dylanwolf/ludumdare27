@@ -40,8 +40,8 @@ public class SliderHandler : MonoBehaviour
 	    track = transform.parent.GetChild(1).gameObject.GetComponent<tk2dSprite>();
 
         // Calculate useful values
-	    minX = track.renderer.bounds.min.x;
-	    maxX = track.renderer.bounds.max.x;
+	    minX = track.GetComponent<Renderer>().bounds.min.x;
+	    maxX = track.GetComponent<Renderer>().bounds.max.x;
 	    length = maxX - minX;
 	    snap = length / ((Maximum - Minimum) / Snap);
 

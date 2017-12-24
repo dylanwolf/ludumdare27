@@ -67,12 +67,12 @@ public class GameManager : MonoBehaviour
                 CreateRandomBalloon(PenaltyBalloon);
             }
 
-            Cover.renderer.enabled = false;
+            Cover.GetComponent<Renderer>().enabled = false;
             TransitionOut.Play();
         }
         else
         {
-            Cover.renderer.enabled = true;
+            Cover.GetComponent<Renderer>().enabled = true;
             TransitionIn.Play();
         }
 
@@ -127,8 +127,8 @@ public class GameManager : MonoBehaviour
     void DoGameOver()
     {
         TransitionIn.Play();
-        Cover.renderer.enabled = true;
-        Cursor.renderer.enabled = false;
+        Cover.GetComponent<Renderer>().enabled = true;
+        Cursor.GetComponent<Renderer>().enabled = false;
         GameOverScreen.Translate(0, 0, VisibleZ - GameOverScreen.position.z);
 
         ScoreText.text = SixthsGameState.Score.ToString();
@@ -151,8 +151,8 @@ public class GameManager : MonoBehaviour
     public void StartNewGame()
     {
         TransitionOut.Play();
-        Cover.renderer.enabled = false;
-        Cursor.renderer.enabled = true;
+        Cover.GetComponent<Renderer>().enabled = false;
+        Cursor.GetComponent<Renderer>().enabled = true;
         GameOverScreen.Translate(0, 0, HiddenZ - GameOverScreen.position.z);
 
         SixthsGameState.GameRunning = true;
